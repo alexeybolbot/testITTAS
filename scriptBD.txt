@@ -1,0 +1,21 @@
+-- Table: public.directory
+
+-- DROP TABLE public.directory;
+
+CREATE TABLE public.directory
+(
+    id integer NOT NULL DEFAULT nextval('directory_id_seq'::regclass),
+    fio text COLLATE pg_catalog."default" NOT NULL,
+    city text COLLATE pg_catalog."default" NOT NULL,
+    country text COLLATE pg_catalog."default" NOT NULL,
+    phone_number text COLLATE pg_catalog."default" NOT NULL,
+    CONSTRAINT directory_pkey PRIMARY KEY (id),
+    CONSTRAINT directory_phone_number_key UNIQUE (phone_number)
+)
+WITH (
+    OIDS = FALSE
+)
+TABLESPACE pg_default;
+
+ALTER TABLE public.directory
+    OWNER to postgres;
